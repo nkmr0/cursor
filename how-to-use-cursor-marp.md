@@ -1,140 +1,12 @@
 ---
 marp: true
-theme: default
 paginate: true
-style: |
-    /* グローバルスタイル */
-    section {
-      background: #ffffff;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      padding: 40px;
-    }
-
-    /* ヘッダースタイル */
-    h1 {
-      color: #1a1a1a;
-      font-size: 2.8em;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      margin-bottom: 1em;
-    }
-
-    h2 {
-      color: #2d2d2d;
-      font-size: 1.8em;
-      font-weight: 600;
-      margin-bottom: 0.8em;
-      letter-spacing: -0.02em;
-    }
-
-    h3 {
-      color: #404040;
-      font-size: 1.4em;
-      font-weight: 500;
-      margin-bottom: 0.6em;
-    }
-
-    /* リストスタイル */
-    ul {
-      list-style: none;
-      padding-left: 0.5em;
-    }
-
-    ul li {
-      margin: 0.5em 0;
-      padding-left: 1em;
-      position: relative;
-    }
-
-    ul li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.7em;
-      width: 4px;
-      height: 4px;
-      background: #0066cc;
-      border-radius: 50%;
-    }
-
-    /* 強調スタイル */
-    strong {
-      color: #0066cc;
-      font-weight: 600;
-    }
-
-    /* コードブロックスタイル */
-    code {
-      background: #f5f5f5;
-      border-radius: 4px;
-      padding: 0.2em 0.4em;
-      font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
-      font-size: 0.9em;
-      color: #2d2d2d;
-    }
-
-    /* リンクスタイル */
-    a {
-      color: #0066cc;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(0, 102, 204, 0.2);
-      transition: border-color 0.2s ease;
-    }
-
-    a:hover {
-      border-color: #0066cc;
-    }
-
-    /* セクション特別スタイル */
-    section.lead {
-      background: #0066cc;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-    }
-
-    section.lead h1 {
-      color: white;
-      font-size: 3.2em;
-      text-align: center;
-      margin: 0;
-      line-height: 1.2;
-    }
-
-    /* ページ番号スタイル */
-    section::after {
-      color: #666666;
-      font-size: 0.7em;
-      font-weight: 500;
-    }
-
-    /* 引用スタイル */
-    blockquote {
-      border-left: 3px solid #0066cc;
-      margin: 1em 0;
-      padding-left: 1em;
-      color: #666666;
-    }
-
-    /* テーブルスタイル */
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin: 1em 0;
-    }
-
-    th, td {
-      border: 1px solid #e6e6e6;
-      padding: 0.5em 1em;
-    }
-
-    th {
-      background: #f5f5f5;
-      font-weight: 600;
-    }
 ---
+
+<style>
+/* デフォルトテーマのインポート */
+@import url('./themes/default.css');
+</style>
 
 <!-- _class: lead -->
 
@@ -210,6 +82,8 @@ Cursor の利用状況は以下のページで確認できる：
 -   ターミナルコマンドの実行（ビルド、テストなど）
 -   エラー発生時の自動修正試行ループ
 -   コード生成
+
+---
 
 ## 3. コンテキストの重要性
 
@@ -525,11 +399,9 @@ Cursor の利用状況は以下のページで確認できる：
 ### MCP 導入手順
 
 1. **有効化**:
-
     - Settings > Features > MCP をオン
 
 2. **サーバー設定**:
-
     - `.cursor/mcp.json`
     - `~/.cursor/mcp.json`
 
