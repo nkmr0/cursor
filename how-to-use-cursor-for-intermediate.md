@@ -4,8 +4,7 @@ paginate: true
 ---
 
 <style>
-/* デフォルトテーマのインポート */
-@import url('./themes/default.css');
+@import url('./styles.css');
 </style>
 
 <!-- _class: lead -->

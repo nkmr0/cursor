@@ -1,0 +1,323 @@
+/* Google Fontsから日本語フォントを読み込み */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+/* --- 色やフォントの基本設定 --- */
+:root {
+  --color-background: #ffffff;
+  --color-foreground: #2d3748;
+  --color-heading: #2b6cb0;
+  --color-accent: #3182ce;
+  --color-light: #f7fafc;
+  --color-muted: #718096;
+  --color-border: #e2e8f0;
+  --color-success: #38a169;
+  --color-warning: #d69e2e;
+  --color-error: #e53e3e;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --font-default: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+}
+
+/* --- スライド全体のスタイル --- */
+section {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  color: var(--color-foreground);
+  font-family: var(--font-default);
+  font-weight: 400;
+  box-sizing: border-box;
+  border-bottom: 4px solid var(--color-accent);
+  position: relative;
+  line-height: 1.8;
+  font-size: 20px;
+  padding: 60px;
+  overflow: hidden;
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+/* 背景装飾 */
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(43, 108, 176, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* --- 見出しのスタイル --- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--color-heading);
+  margin: 0;
+  padding: 0;
+}
+
+/* タイトルページ(h1)のスタイル */
+h1 {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: left;
+  background: linear-gradient(135deg, var(--color-heading) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+}
+
+/* 通常スライドのタイトル(##) */
+h2 {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  right: 60px;
+  font-size: 36px;
+  font-weight: 600;
+  padding-top: 0;
+  padding-bottom: 20px;
+  color: var(--color-heading);
+}
+
+/* h2の疑似要素(::after)を使って、洗練された線を実装 */
+h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-heading) 100%);
+  border-radius: 2px;
+}
+
+/* h2と後続コンテンツの間のスペースを確保 */
+h2 + * {
+  margin-top: 90px;
+}
+
+/* サブ見出し (例: 目的, 目標) */
+h3 {
+  color: var(--color-heading);
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 16px;
+  position: relative;
+  padding-left: 20px;
+}
+
+/* h3の装飾 */
+h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+/* h4スタイル */
+h4 {
+  color: var(--color-foreground);
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- リストのスタイル --- */
+ul, ol {
+  padding-left: 32px;
+}
+li {
+  margin-bottom: 10px;
+}
+
+/* フッターとして機能する、太い青いラインを実装 */
+footer {
+  font-size: 0;
+  color: transparent;
+  position: absolute;
+  left: 56px;
+  right: 56px;
+  bottom: 40px;
+  height: 8px;
+  background-color: var(--color-heading);
+}
+
+/* ★★★ ロゴの配置方法を、calc()を使った最も堅牢な方法に変更 ★★★ */
+header {
+  font-size: 0;
+  color: transparent;
+  background-image: url('ロゴ.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: top right;
+  
+  position: absolute;
+  top: 40px;
+  
+  /* rightプロパティの代わりに、calc()で左からの位置を計算して配置を安定させます */
+  /* 計算式: (コンテナの幅 - ロゴの幅 - 右の余白) */
+  left: calc(100% - 180px - 56px);
+  
+  /*
+    【重要】下のwidthの値を変更した場合、
+    上のcalc()内の「180px」も同じ値にしてください。
+  */
+  width: 180px;
+  height: 50px;
+}
+
+/* --- 特別なクラス --- */
+section.lead {
+  border-bottom: 8px solid var(--color-hr);
+}
+
+/* タイトルページではフッターラインとロゴ(header)を非表示にする */
+section.lead footer,
+section.lead header {
+  display: none;
+}
+
+section.lead h1 {
+  margin-bottom: 24px;
+}
+section.lead p {
+  font-size: 24px;
+  color: var(--color-foreground);
+}
+
+/* グリッドレイアウト */
+.grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 32px 0;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3rem;
+  margin: 32px 0;
+}
+
+.columns > div {
+  min-width: 0;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+/* フィーチャーカード */
+.feature-card {
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-card h3 {
+  color: var(--color-heading);
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: var(--color-foreground);
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 強調スタイル */
+strong {
+  color: var(--color-heading);
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(43, 108, 176, 0.1) 0%, rgba(49, 130, 206, 0.1) 100%);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* 引用スタイル */
+blockquote {
+  background: linear-gradient(135deg, rgba(43, 108, 176, 0.05) 0%, rgba(49, 130, 206, 0.05) 100%);
+  border-left: 4px solid var(--color-accent);
+  padding: 20px 28px;
+  margin: 28px 0;
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: var(--color-muted);
+  box-shadow: var(--shadow-sm);
+}
+
+/* コードスタイル */
+code {
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: 'Consolas', 'Monaco', 'Fira Code', monospace;
+  font-size: 16px;
+  color: #2d3748;
+  border: 1px solid var(--color-border);
+}
+
+pre {
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  padding: 24px;
+  border-radius: 12px;
+  overflow-x: auto;
+  margin: 28px 0;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  font-size: 14px;
+}
+
+/* テーブルスタイル */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: var(--color-heading);
+  color: white;
+  font-weight: 700;
+}
+
+/* ガイドライン用のスタイル */
+.bad-example {
+  background-color: #fbe9e7;
+  color: #c62828;
+  padding: 8px 16px;
+  border-radius: 4px;
+}
