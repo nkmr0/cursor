@@ -237,7 +237,6 @@ Cursor の利用状況は以下のページで確認できる：
 -   生成コードは必ず人間がレビュー
 -   テストの実施は必須
 
-[実践例](https://github.com/animalife/anikar_user_api/pull/1019)
 
 ---
 
