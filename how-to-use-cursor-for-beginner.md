@@ -7,7 +7,7 @@ paginate: true
 @import url('./styles.css');
 </style>
 
-# Cursor 実践ガイド
+# Cursor 基本ガイド
 
 <p style="text-align: center; font-size: 24px; margin-top: 32px;">AIコーディングの始め方</p>
 
